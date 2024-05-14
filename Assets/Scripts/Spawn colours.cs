@@ -157,7 +157,7 @@ public class Spawncolours : MonoBehaviour
 
     void CreateText()
     {
-        string path = Application.dataPath + "/Tower Defense Data log.csv";
+        string path = Application.persistentDataPath + "/Tower Defense Data log.csv";
 
         if (!File.Exists(path))
         {

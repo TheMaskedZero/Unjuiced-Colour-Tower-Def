@@ -7,6 +7,7 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject startScreen;
     [SerializeField] GameObject blackBox;
     public GameObject tutorialScreen;
+    public GameObject tutorialScreen2;
 
     public GameObject levelScreen;
     public static GameObject levelSelectScreen;
@@ -36,6 +37,25 @@ public class UI : MonoBehaviour
     {
         startScreen.SetActive(false);
         levelSelectScreen.SetActive(true);
+    }
+
+    public void TutorialScreen()
+    {
+        tutorialScreen.SetActive(true);
+        startScreen.SetActive(false);
+    }
+
+    public void NextTutorial()
+    {
+        tutorialScreen.SetActive(false);
+        tutorialScreen2.SetActive(true);
+    }
+
+    public void BackToStart()
+    {
+        tutorialScreen.SetActive(false);
+        tutorialScreen2.SetActive(false);
+        startScreen.SetActive(true);
     }
 
     public void Level1()
