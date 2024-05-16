@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject blackBox;
     public GameObject tutorialScreen;
     public GameObject tutorialScreen2;
+
+    public static int score;
+    public static GameObject showScoreScreen;
+    public GameObject scoreScreen;
+    public TextMeshProUGUI scoreText;
 
     public GameObject levelScreen;
     public static GameObject levelSelectScreen;
@@ -24,6 +30,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        showScoreScreen = scoreScreen;
         levelSelectScreen = levelScreen;
     }
 
@@ -58,8 +65,20 @@ public class UI : MonoBehaviour
         startScreen.SetActive(true);
     }
 
+    public void ScoreScreen()
+    {
+        showScoreScreen.SetActive(false);
+        levelSelectScreen.SetActive(true);
+    }
+
     public void Level1()
     {
+        score = Random.Range(75, 95);
+        scoreText.text = score.ToString() + "%";
+
+        Move.disabledMove = 0;
+        Click.disabledClick = 0;
+
         levelSelectScreen.SetActive(false);
         Spawncolours.timeStart = true;
 
@@ -78,6 +97,12 @@ public class UI : MonoBehaviour
 
     public void Level2()
     {
+        score = Random.Range(75, 95);
+        scoreText.text = score.ToString() + "%";
+
+        Move.disabledMove = 0;
+        Click.disabledClick = 0;
+
         levelSelectScreen.SetActive(false);
         Spawncolours.timeStart = true;
 
@@ -96,6 +121,12 @@ public class UI : MonoBehaviour
 
     public void Level3()
     {
+        score = Random.Range(75, 95);
+        scoreText.text = score.ToString() + "%";
+
+        Move.disabledMove = 0;
+        Click.disabledClick = 0;
+
         levelSelectScreen.SetActive(false);
         Spawncolours.timeStart = true;
 

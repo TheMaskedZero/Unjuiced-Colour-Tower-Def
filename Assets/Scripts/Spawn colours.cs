@@ -86,7 +86,7 @@ public class Spawncolours : MonoBehaviour
         CIE1931xyCoordinates.Remove(currentDot);
         colorConverted = blackBox.GetComponent<ConvertToP3>().Convert(currentDot);
 
-        randomizePosition = new Vector2(Random.Range(-12f, -8f), Random.Range(4.3f, -4.3f));
+        randomizePosition = new Vector2(Random.Range(-13f, -11f), Random.Range(4.3f, -4.3f));
 
         GameObject circle = Instantiate(colourCircle, new Vector2(randomizePosition[0], randomizePosition[1]), Quaternion.identity);
         GameObject donut = Instantiate(borderDonut, new Vector2(randomizePosition[0], randomizePosition[1]), Quaternion.identity);
@@ -114,6 +114,7 @@ public class Spawncolours : MonoBehaviour
                 {
                     randGO.gameObject.SetActive(true);
                     randGO.transform.position = stage2Spots[i].position;
+                    randGO.GetComponent<Sorting>().transformIndex = stage2Spots[i];
                     availableSpots[i] = false;
                     sortingGO.Add(randGO);
                     Click.letThroughGO.Remove(randGO);
@@ -133,7 +134,7 @@ public class Spawncolours : MonoBehaviour
         elapsedTime = 0;
 
         doneButton.SetActive(false);
-        UI.levelSelectScreen.SetActive(true);
+        UI.showScoreScreen.SetActive(true);
         GameObject.Find("Main Camera").transform.position = new Vector3(0, 0, -10);
 
         foreach (var dot in sortingGO)
@@ -161,7 +162,7 @@ public class Spawncolours : MonoBehaviour
 
         if (!File.Exists(path))
         {
-            File.WriteAllText(path, "Level Time x y");
+            File.WriteAllText(path, "Level Time PositionX PositionY x y");
         }
 
         if (File.Exists(path))
