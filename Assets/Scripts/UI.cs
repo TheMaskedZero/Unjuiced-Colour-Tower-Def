@@ -15,6 +15,8 @@ public class UI : MonoBehaviour
     public GameObject scoreScreen;
     public TextMeshProUGUI scoreText;
 
+    public GameObject showRemainingPanel;
+
     public GameObject levelScreen;
     public static GameObject levelSelectScreen;
 
@@ -30,6 +32,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        showRemainingPanel = Spawncolours.showRemainingPanel;
         showScoreScreen = scoreScreen;
         levelSelectScreen = levelScreen;
     }
@@ -73,6 +76,8 @@ public class UI : MonoBehaviour
 
     public void Level1()
     {
+        showRemainingPanel.SetActive(true);
+
         score = Random.Range(75, 95);
         scoreText.text = score.ToString() + "%";
 
@@ -97,6 +102,8 @@ public class UI : MonoBehaviour
 
     public void Level2()
     {
+        showRemainingPanel.SetActive(true);
+
         score = Random.Range(75, 95);
         scoreText.text = score.ToString() + "%";
 
@@ -121,6 +128,8 @@ public class UI : MonoBehaviour
 
     public void Level3()
     {
+        showRemainingPanel.SetActive(true);
+
         score = Random.Range(75, 95);
         scoreText.text = score.ToString() + "%";
 

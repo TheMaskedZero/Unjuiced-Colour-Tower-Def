@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class Spawncolours : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class Spawncolours : MonoBehaviour
     public static List<Vector2> CIE1931xyCoordinates = new List<Vector2>() { new Vector2(0f,0f)};
     public List<Vector2> checkList;
     public static int maxSpawn = 99;
+    
+    public static GameObject showRemainingPanel;
+    public GameObject remainingPanel;
+    public TextMeshProUGUI remainingSpawns;
 
     //Stage 2 stuff
     public static bool stage2 = false;
@@ -37,12 +42,15 @@ public class Spawncolours : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        showRemainingPanel = remainingPanel;
         elapsedTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        remainingSpawns.text = "remaining: " + checkList.Count.ToString();
+
         if (timeStart)
         {
             elapsedTime += Time.deltaTime;
@@ -70,6 +78,7 @@ public class Spawncolours : MonoBehaviour
 
         if (stage2)
         {
+            showRemainingPanel.SetActive(false);
             Move.disabledMove = 0;
             Click.disabledClick = 0;
             for (int i = 0; i < Click.letThroughGO.Count; i++)
